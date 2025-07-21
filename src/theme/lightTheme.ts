@@ -9,7 +9,7 @@ const LightTheme:  ITheme = {
     primary: "#f0f0f0", 
     secundary: "#e3e3e3", 
     tertiary: "#cccccc", 
-    quaternary: "",
+    quaternary: "#bababa",
     black: "#000000",
     white: "#FFFFFF",
     gray: "#adadad",

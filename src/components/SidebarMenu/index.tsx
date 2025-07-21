@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as Styles from "./styles";
 import { ButtonMenu } from "../ButtonMenu";
 import { useTheme } from "../../hook/useTheme";
+import { MdClose, MdMenu } from "react-icons/md";
 
 export const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,12 @@ export const SidebarMenu = () => {
   return (
     <>
       <Styles.ToggleButton onClick={() => setIsOpen(true)}>
-        ☰
+        <MdMenu/>
       </Styles.ToggleButton>
 
       <Styles.Container $isOpen={isOpen}>
         <Styles.CloseButton onClick={() => setIsOpen(false)}>
-          ✖
+          <MdClose/>
         </Styles.CloseButton>
 
         <Styles.Nav>

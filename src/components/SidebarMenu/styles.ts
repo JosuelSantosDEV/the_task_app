@@ -10,9 +10,11 @@ export const Container = styled.aside<ContainerProps>`
   right: 0;
   bottom: 0;
   width: 300px;
-  background-color: ${p  => p.theme.colors.tertiary};
+  background-color: ${p  => p.theme.colors.primary};
   color: ${p  => p.theme.colors.text};
   z-index: 1000;
+
+  border-left: 2px solid ${p => p.theme.colors.quaternary};
 
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
@@ -31,26 +33,52 @@ export const Container = styled.aside<ContainerProps>`
 `;
 
 export const ToggleButton = styled.button`
-  font-size: 24px;
+  height: 40px;
+  width: 40px;
+
+  font-size:${p => p.theme.sizes.xl};
   background: none;
   border: none;
-  color: black;
+  color: ${p => p.theme.colors.blue};
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: ${p => p.theme.colors.secundary};
+  }
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
-  background: none;
+
+  height: 30px;
+  width: 30px;
+
+  font-size:${p => p.theme.sizes.lg};
+  font-weight: 900;
+  background: ${p => p.theme.colors.blue};
   border: none;
-  color: white;
+  color: ${p => p.theme.colors.white};
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: ${p => p.theme.colors.secundary};
+    color: ${p => p.theme.colors.blue};
+  }
 `;
 
 export const Nav = styled.nav`
   margin-top: 80px;
+  
 `;
 
 export const List = styled.ul`
