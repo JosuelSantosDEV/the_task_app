@@ -14,7 +14,7 @@ export const Container = styled.aside<ContainerProps>`
   color: ${p  => p.theme.colors.text};
   z-index: 1000;
 
-  border-left: 2px solid ${p => p.theme.colors.quaternary};
+  border-left: 2px solid ${p => p.theme.colors.tertiary};
 
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
@@ -90,6 +90,9 @@ export const List = styled.ul`
 
 export const Li = styled.li`
   list-style: none;
+
+  padding: ${p => p.theme.sizes.sm};
+
   cursor: pointer;
   &:hover {
     text-decoration: underline;
