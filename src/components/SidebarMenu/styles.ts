@@ -36,6 +36,8 @@ export const ToggleButton = styled.button`
   height: 40px;
   width: 40px;
 
+  border-radius:${p => p.theme.sizes.sm};
+
   font-size:${p => p.theme.sizes.xl};
   background: none;
   border: none;
@@ -58,6 +60,7 @@ export const CloseButton = styled.button`
 
   height: 30px;
   width: 30px;
+  border-radius:${p => p.theme.sizes.sm};;
 
   font-size:${p => p.theme.sizes.lg};
   font-weight: 900;

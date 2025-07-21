@@ -20,7 +20,7 @@ const TriggerButton = styled.button<StyleProps>`
   outline: none;
 
   font-size: ${p => p.theme.sizes.md};
-  font-weight:500;
+  font-weight:600;
 
   display: flex;
   align-items: center;

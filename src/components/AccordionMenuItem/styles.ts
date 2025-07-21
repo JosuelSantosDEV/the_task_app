@@ -25,6 +25,7 @@ export const ToggleButton = styled.button<{ $open: boolean,}>`
 `;
 
 export const Content = styled.div<{ $open: boolean,  $isScroll: boolean  }>`
+  margin-top: 5px;
   max-height: ${({ $open }) => ($open ? "160px" : "0")};
   ${({$isScroll}) => $isScroll ? css`overflow-y: auto;` : css`overflow: hidden;`}
   transition: max-height 0.3s ease;
