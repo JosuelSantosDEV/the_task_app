@@ -4,66 +4,12 @@ import styled, { css } from "styled-components";
 type StyleProps = {
   disabled?: boolean;
   $size?: "sm" | "md" | "lg"
-  $variant?: "siple" | "default";
+  $variant?: "simple" | "default";
   $center?: boolean
 };
 
-
-export const ButtonContainer = styled.div<StyleProps>`
-  ${
-      ({disabled}) => {
-        if(disabled) return css` cursor: not-allowed; `;
-        return css` cursor: pointer; `;
-      }
-  
-  }
-
-  ${
-      ({$variant}) => {
-        if($variant === "siple") return css`   border-radius: none; `;
-        return css`   border-radius: 6px;`;
-      }
-  
-  }
-
-  overflow: hidden;
-  background-color:  transparent;
-
-  ${
-    ({theme, $size}) => {
-
-      switch($size){
-        case "lg" : {
-          return css`
-            height: ${theme.sizes["2xl"]};
-
-
-          `;
-        }
-        case "sm" : {
-          return css`
-            height: ${theme.sizes.lg};
-
-
-          `;
-        }
-        default : {
-          return css`
-            height: ${theme.sizes.xl};
-
-          `;
-        }
-      }
-    }
-  }
-
-    
-
-`;
-
-export const Container = styled.button<StyleProps>`
+export const Button = styled.button<StyleProps>`
   height: 100%;
-  width: 100%;
 
   border: none;
 
@@ -91,6 +37,25 @@ export const Container = styled.button<StyleProps>`
     background-color:  ${(p) => p.theme.colors.secundary};
   }
 
+  ${ 
+      ({$variant}) => {
+        switch($variant){
+          case "simple" : {
+            return css`
+              border-radius: none; 
+              width: 100%;
+            `;
+          }
+          default : {
+            return css`
+              border-radius: 6px;
+            `;
+          }
+        }
+      }
+  
+  }
+
   ${
       ({$center}) => {
         if($center) return css`justify-content:space-around; `;
@@ -100,41 +65,40 @@ export const Container = styled.button<StyleProps>`
   }
 
   ${
-    ({ $size}) => {
+    ({theme, $size}) => {
 
       switch($size){
         case "lg" : {
           return css`
+            height: ${theme.sizes["2xl"]};
             font-size: 20px;
             font-weight: 600;
           `;
         }
         case "md" : {
           return css`
+            height: ${theme.sizes.xl};
             font-size: ${p => p.theme.sizes.md};
-            `;
+          `;
         }
         case "sm" : {
           return css`
+            height: ${theme.sizes.lg};
             font-size: 12px;
           `;
         }
         default : {
           return css`
+            height: ${theme.sizes.xl};
             font-size: 14px;
-            
           `;
         }
       }
     }
   }
   
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      opacity: 0.6;
-      cursor: not-allowed;
-      pointer-events: none;
-    `}
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;

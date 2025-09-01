@@ -1,47 +1,75 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as Styles from "./styles";
-import { ButtonMenu } from "../ButtonMenu";
+import { Button } from "../Button";
 import { useTheme } from "../../hook/useTheme";
 import { MdClose, MdDarkMode, MdLightMode, MdMenu } from "react-icons/md";
-import { AccordionMenuItem } from "../AccordionMenuItem";
+import { AccordionMenu } from "../AccordionMenu";
 
 export const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {toggleTheme, currentTheme} = useTheme();
+  const { toggleTheme, currentTheme } = useTheme();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <>
       <Styles.ToggleButton onClick={() => setIsOpen(true)}>
-        <MdMenu/>
+        <MdMenu />
       </Styles.ToggleButton>
 
-      <Styles.Container $isOpen={isOpen}>
+      <Styles.Container $isOpen={isOpen} ref={menuRef}>
         <Styles.CloseButton onClick={() => setIsOpen(false)}>
-          <MdClose/>
+          <MdClose />
         </Styles.CloseButton>
 
         <Styles.Nav>
           <Styles.List>
-            <ButtonMenu $size="lg" onClick={toggleTheme} title="Theme">
-              { currentTheme === "dark" ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
-            </ButtonMenu>
+            <Button $size="lg" onClick={toggleTheme} title="Theme">
+              {currentTheme === "dark" ? (
+                <MdLightMode size={20} />
+              ) : (
+                <MdDarkMode size={20} />
+              )}
+            </Button>
+
             <Styles.Li>Home</Styles.Li>
             <Styles.Li>Sobre</Styles.Li>
             <Styles.Li>Contato</Styles.Li>
-            <AccordionMenuItem
+
+            <AccordionMenu
               label="Usuários"
               items={[
                 { label: "Listar usuários", onClick: () => console.log("listar") },
                 { label: "Novo usuário", onClick: () => console.log("novo") },
-                { label: "Listar usuários", onClick: () => console.log("listar") },
-                { label: "Listar usuários", onClick: () => console.log("listar") },
-                { label: "Listar usuários", onClick: () => console.log("listar") },
-                { label: "Listar usuários", onClick: () => console.log("listar") },
-                { label: "Listar usuários", onClick: () => console.log("listar") },
               ]}
             />
 
-            <AccordionMenuItem
+            <AccordionMenu
               label="Relatórios"
               items={[
                 { label: "Mensal", onClick: () => console.log("mensal") },

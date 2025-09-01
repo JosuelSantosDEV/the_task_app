@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-
     width: 100%;
-    height: 80px;
 
     padding-left: ${p => p.theme.sizes.md};
     padding-right: ${p => p.theme.sizes.md };
@@ -11,15 +9,30 @@ export const Header = styled.header`
 
     background-color: ${p => p.theme.colors.primary};
 
-    display: flex;
+    display: grid;
     align-items: center;
     gap: ${p => p.theme.sizes.md};
-   
 
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas:
+        "logo header_menu info_container sidebar_menu"
+    ;
+
+    @media ${p => p.theme.medias.lg} {
+        gap: 4px;
+        grid-template-columns: auto 1fr auto auto;
+        grid-template-rows: 80px 40px;
+        grid-template-areas:
+            "logo . info_container sidebar_menu"
+            "header_menu header_menu header_menu header_menu"
+        ;
+    }
+   
 `;
 
 
 export const HeaderMenuContainer = styled.div`
+    grid-area:header_menu;
 
     height: 80%;
 
@@ -32,8 +45,7 @@ export const HeaderMenuContainer = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-
-    width: 250px;
+    grid-area:info_container;
     height: 80%;
     border-radius: ${p => p.theme.sizes.sm};
     background-color: ${p => p.theme.colors.primary};
@@ -41,7 +53,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const SidebarMenuContainer = styled.div`
-
+    grid-area: sidebar_menu;
     width: 64px;
     height: 64px;
     border-radius: ${p => p.theme.sizes.sm};
@@ -54,7 +66,7 @@ export const SidebarMenuContainer = styled.div`
 `;
 
 export const Logo = styled.div`
-
+    grid-area: logo;
     width: 64px;
     height: 64px;
     border-radius: ${p => p.theme.sizes.sm};

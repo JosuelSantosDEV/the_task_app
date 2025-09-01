@@ -4,38 +4,31 @@ import React from "react";
 
 export type ButtonMenuProps = {
   title?: string;
-  disabled?: boolean;
+  disable?: boolean;
   children?: React.ReactNode;
   $size?: "sm" | "md" | "lg"
-  $variant?: "siple" | "default";
+  $variant?: "simple" | "default";
   $center?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const ButtonMenu = ({
+export const Button = ({
   title,
   children,
-  disabled = false,
+  disable = false,
   $size,
   $variant = "default",
   $center = true,
   ...rest
 }: ButtonMenuProps) => {
   return (
-    <Styled.ButtonContainer
+    <Styled.Button
       $size={$size}
       $variant={$variant}
       $center={$center}
-      disabled={disabled}
+      disabled={disable}
+      {...rest}
     >
-      <Styled.Container
-        $size={$size}
-        $variant={$variant}
-        $center={$center}
-        disabled={disabled}
-        {...rest}
-      >
-        {title}{children ? children : ""} 
-      </Styled.Container>
-    </Styled.ButtonContainer>
+      {title} {children ? children : ""} 
+    </Styled.Button>
   );
 };

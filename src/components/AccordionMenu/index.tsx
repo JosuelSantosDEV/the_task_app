@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Container, ToggleButton, Content } from "./styles";
 import { ChevronDown } from "../ChevrronIcon";
-import { ButtonMenu } from "../ButtonMenu";
+import { Button } from "../Button";
 
 
 export type AccordionMenuItemProps = {
@@ -10,7 +10,7 @@ export type AccordionMenuItemProps = {
   items: { label: string; onClick: () => void }[]
 }
 
-export const AccordionMenuItem = ({ label, items }: AccordionMenuItemProps) => {
+export const AccordionMenu = ({ label, items }: AccordionMenuItemProps) => {
   const [open, setOpen] = useState(false);
 
   const isScroll = items.length > 5 ? true : false;
@@ -24,7 +24,7 @@ export const AccordionMenuItem = ({ label, items }: AccordionMenuItemProps) => {
 
       <Content $open={open} $isScroll={isScroll} >
         {items.map((item, i) => (
-          <ButtonMenu $variant="siple"  $center={false} key={i} onClick={item.onClick} title={item.label} />
+          <Button $variant="simple"  $center={false} key={i} onClick={item.onClick} title={item.label} />
         ))}
       </Content>
     </Container>

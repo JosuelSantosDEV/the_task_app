@@ -1,14 +1,25 @@
 
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import * as Dropdown from "@radix-ui/react-dropdown-menu";
 import styled, { css } from "styled-components";
 import { ChevronDown } from "../ChevrronIcon";
 import { useState } from "react";
 
 type StyleProps = {
   disabled?: boolean;
-  $size?: "sm" | "md" | "lg"
+  $size?: "sm" | "md" | "lg";
 };
 
+type DropdownProps = {
+  title: string;
+  options: OptionType[];
+  disabled?: boolean;
+  $size?: "sm" | "md" | "lg";
+}
+
+type OptionType = {
+  optionTitle: string;
+  click: () => void;
+}
 
 const TriggerButton = styled.button<StyleProps>`
   background: transparent;
@@ -68,7 +79,7 @@ const TriggerButton = styled.button<StyleProps>`
   }
 `;
 
-const Content = styled(DropdownMenu.Content)`
+const Content = styled(Dropdown.Content)`
   background: ${p => p.theme.colors.primary};
   border: none;
   border-radius: 6px;
@@ -89,7 +100,7 @@ const Content = styled(DropdownMenu.Content)`
   }
 `;
 
-const Item = styled(DropdownMenu.Item)`
+const Item = styled(Dropdown.Item)`
   padding: 8px 12px;
   font-size: 14px;
   color: ${p => p.theme.colors.text};
@@ -99,18 +110,6 @@ const Item = styled(DropdownMenu.Item)`
     background-color: ${p => p.theme.colors.tertiary};
   }
 
-  &[data-disabled] {
-    color: ${p => p.theme.colors.background};
-    cursor: not-allowed;
-    pointer-events: none;
-    color:${p => p.theme.colors.text};
-    opacity: 0.5;
-  }
-
-  &[data-highlighted] {
-    background-color: ${p => p.theme.colors.tertiary};
-    color: ${p => p.theme.colors.text};
-  }
 `;
 
 const DisableMouseContainer = styled.div<StyleProps>`
@@ -123,28 +122,27 @@ const DisableMouseContainer = styled.div<StyleProps>`
     }
 `;
 
-export const Dropdown = ({$size, disabled} : StyleProps) => {
+export const DropdownMenu = ({$size, disabled, title, options} : DropdownProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <DropdownMenu.Root open={open} onOpenChange={setOpen}>
+    <Dropdown.Root open={open} onOpenChange={setOpen}>
       <DisableMouseContainer disabled={disabled}>
-        <DropdownMenu.Trigger asChild>
+        <Dropdown.Trigger asChild>
             <TriggerButton $size={$size} disabled={disabled} >
-            Opções
+              {title}
             <ChevronDown $rotated={open} />
             </TriggerButton>
-        </DropdownMenu.Trigger>
+        </Dropdown.Trigger>
       </DisableMouseContainer>
 
       <Content sideOffset={10}>
-        <Item onSelect={() => alert("Editar")}>Editar</Item>
-        <Item onSelect={() => alert("Excluir")}>Excluir</Item>
-        <DropdownMenu.Separator asChild>
-          <hr style={{ margin: "4px 0", border: "none", borderTop: "1px solid #eee" }} />
-        </DropdownMenu.Separator>
-        <Item data-disabled onSelect={() => alert("Excluir")}>Desabilitado</Item>
+        {
+          options.map(option => (
+            <Item onSelect={option.click}>{option.optionTitle}</Item>
+          ))
+        }
       </Content>
-    </DropdownMenu.Root>
+    </Dropdown.Root>
   );
 };

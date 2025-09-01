@@ -14,7 +14,7 @@ export const List = styled.ul`
 
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   gap: 10px;
 
 `;
