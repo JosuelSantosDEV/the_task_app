@@ -6,13 +6,14 @@ const DarkTheme: ITheme = {
     background: "#212121",
     text: "#ffffff",
     primary: "#0A0A0A", 
-    secundary: "#292929",
+    secondary: "#292929",
     tertiary: "#474747", 
     quaternary: "#828282",
     black: "#000000",
     white: "#FFFFFF",
     gray: "#adadad",
-    blue: "#0052f5"
+    blue: "#0052f5",
+    red: "#ef4444"
   },
   ...CommomThemes
 };

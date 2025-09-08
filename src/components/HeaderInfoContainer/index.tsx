@@ -10,11 +10,13 @@ const infos = {
 
 export const HeaderInfoContainer = () => {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const handleOpenDialog = () => {
-    if (dialogRef.current && !dialogRef.current.open) {
+    if(!dialogRef.current) return;
+    if (!dialogRef.current.open) {
       dialogRef.current.show();
-    }
+    } else dialogRef.current.close();
   };
 
   const handleCloseDialog = () => {
@@ -25,7 +27,9 @@ export const HeaderInfoContainer = () => {
     if (dialogRef.current?.open) return;
 
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
+      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)
+        && !containerRef.current?.contains(event.target as Node)
+      ) {
         handleCloseDialog();
       }
     };
@@ -48,7 +52,7 @@ export const HeaderInfoContainer = () => {
   }, []);
 
   return (
-    <Styles.Container>
+    <Styles.Container ref={containerRef} >
       <Styles.SubContainer onClick={handleOpenDialog}>
         <h3>Hello, {infos.username}</h3>
         <h3>{infos.email}</h3>

@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import React from "react";
+import React, { useId } from "react";
 
 export type InputProps = {
   label?: string;
@@ -21,9 +21,11 @@ export const Input = ({
   $disabled = false,
   ...rest
 }: InputProps) => {
+  const id = useId();
+  
   return (
     <Styled.InputContainer>
-      {label && <Styled.Label>{label}</Styled.Label>}
+      {label && <Styled.Label htmlFor={id} >{label}</Styled.Label>}
       <Styled.Input
         placeholder={placeholder}
         $size={$size}
@@ -31,6 +33,7 @@ export const Input = ({
         $error={!!error}
         $disabled={$disabled}
         disabled={$disabled}
+        id={id}
         {...rest}
       />
       {error && <Styled.ErrorMessage>{error}</Styled.ErrorMessage>}

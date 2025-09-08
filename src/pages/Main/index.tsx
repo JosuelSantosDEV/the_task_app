@@ -3,13 +3,13 @@ import * as Styles from  "./styles";
 
 const Main= () => {
   return (
-    <div>
+    <Styles.Container>
         <GradientText>
           <Styles.TextContainer>
-                Uma nova experiencia de produtividade!!!
+            A new productivity experience!!!
           </Styles.TextContainer>   
         </GradientText>
-      </div>
+      </Styles.Container>
   );
 };
 

@@ -10,13 +10,14 @@ type Colors = {
     background: string;
     text: string;
     primary: string;
-    secundary: string;
+    secondary: string;
     tertiary: string;
     quaternary: string;
     black: string;
     white: string;
     gray: string;
     blue: string;
+    red: string;
     
 }
 

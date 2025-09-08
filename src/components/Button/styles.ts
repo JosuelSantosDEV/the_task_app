@@ -34,7 +34,7 @@ export const Button = styled.button<StyleProps>`
   color: ${(p) => p.theme.colors.text};
 
   &:hover {
-    background-color:  ${(p) => p.theme.colors.secundary};
+    background-color:  ${(p) => p.theme.colors.secondary};
   }
 
   ${ 

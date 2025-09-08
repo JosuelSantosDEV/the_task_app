@@ -49,7 +49,7 @@ export const ToggleButton = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: ${p => p.theme.colors.secundary};
+    background-color: ${p => p.theme.colors.secondary};
   }
 `;
 
@@ -74,7 +74,7 @@ export const CloseButton = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: ${p => p.theme.colors.secundary};
+    background-color: ${p => p.theme.colors.secondary};
     color: ${p => p.theme.colors.blue};
   }
 `;

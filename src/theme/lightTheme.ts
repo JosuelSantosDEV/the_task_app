@@ -7,13 +7,14 @@ const LightTheme:  ITheme = {
     background: "#fafafa",
     text: "#02021d",
     primary: "#f0f0f0", 
-    secundary: "#e3e3e3", 
+    secondary: "#e3e3e3", 
     tertiary: "#cccccc", 
     quaternary: "#bababa",
     black: "#000000",
     white: "#FFFFFF",
     gray: "#adadad",
     blue: "#0052f5",
+    red: "#ef4444",
   },
   ...CommomThemes
 };

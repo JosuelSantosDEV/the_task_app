@@ -94,7 +94,7 @@ export const Select = styled.select<StyleProps>`
         return css`
           border: none;
           border-radius: 8px;
-          background-color: ${theme.colors.secundary};
+          background-color: ${theme.colors.secondary};
 
           &:focus {
             background-color: ${theme.colors.tertiary};
@@ -117,15 +117,15 @@ export const Select = styled.select<StyleProps>`
     }
   }}
 
-  ${({ $error }) =>
+  ${({ $error, theme }) =>
     $error &&
     css`
-      border-color: #ef4444 !important;
-      box-shadow: 0 0 0 2px #ef444420 !important;
+      border-color: ${theme.colors.red} !important;
+      box-shadow: 0 0 0 2px ${theme.colors.red}20 !important;
 
       &:focus {
-        border-color: #ef4444 !important;
-        box-shadow: 0 0 0 3px #ef444420 !important;
+        border-color: ${theme.colors.red} !important;
+        box-shadow: 0 0 0 3px ${theme.colors.red}20 !important;
       }
     `}
 
@@ -188,7 +188,7 @@ export const ChevronIcon = styled.div<StyleProps>`
 
 export const ErrorMessage = styled.span`
   font-size: 12px;
-  color: #ef4444;
+  color: ${(p) => p.theme.colors.red};
   font-family: ${(p) => p.theme.fonts.primary};
   margin-top: -4px;
 `;

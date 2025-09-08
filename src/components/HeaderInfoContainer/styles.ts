@@ -14,6 +14,7 @@ export const SubContainer = styled.div`
   justify-content: center;
   overflow: hidden;
   padding-left: 10px;
+  cursor: pointer;
 
   > h3 {
     font-size: 14px;
@@ -28,6 +29,7 @@ export const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   > svg {
     color: ${(p) => p.theme.colors.blue};

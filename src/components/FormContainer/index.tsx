@@ -7,8 +7,8 @@ type FormContainerStyleProp ={
     $background?: keyof ITheme["colors"] | undefined;
 }
 const StyledForm = styled.form<FormContainerStyleProp>`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction:column;
   align-items: center;

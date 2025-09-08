@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-
-    height: 100%;
+export const Container  = styled.div`
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: red;
-
+    margin-top: 20px;
+    margin-bottom: 20px;
 `;
+
+export const Title  = styled.h1`
+    font-weight: 900;
+    font-size: 28px;
+`;
+

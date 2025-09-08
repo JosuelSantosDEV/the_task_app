@@ -39,7 +39,7 @@ const TriggerButton = styled.button<StyleProps>`
   cursor: pointer;
 
   &:hover {
-    background: ${p => p.theme.colors.secundary};
+    background: ${p => p.theme.colors.secondary};
   }
 
   ${({ disabled }) =>

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import GradientText from "../../AnimateAndEffect/GradientText";
 import { NavLink, type NavLinkProps } from "../../components/NavLink";
 import * as Styles from "./styles";
+import { Footer } from "../../components/Footer";
 
 const itensNav: NavLinkProps[] = [
     {
@@ -24,15 +25,7 @@ const itensNav: NavLinkProps[] = [
         label: "About",
         to: "/about"
     },
-    {
-        label: "Tasks",
-        to: "/home/tasks"
-    },
-    {
-        label: "React-hook-form",
-        to: "https://react-hook-form.com/get-started",
-        extern: true
-    }
+    
 ];
 
 
@@ -52,6 +45,7 @@ const MainLayout = () => {
                 <NavLink itemsLinks={itensNav} />
             </div>
             <Outlet/>
+            <Footer/>
         </Styles.Container>
     );
 };

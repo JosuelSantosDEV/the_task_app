@@ -1,28 +1,18 @@
-import { Button } from "../../../components/Button";
 import { ContainerCenter } from "../../../components/ContainerCenter";
-import { FormContainer } from "../../../components/FormContainer";
-import { Input } from "../../../components/Input";
-//import * as Styles from  "./styles";
+import { LoginForm } from "../../../components/forms/LoginForm";
+import * as Styles from  "./styles";
 
 export default function Login() {
   return (
-    <ContainerCenter $background="primary" $margin={10} $height={50} $width={30} $align="center" $direction="column" $gap={10} >
-      <h1>
-        This is login Page
-      </h1>
-      <FormContainer>
-        <Input
-          $variant="default"
-          label="E-Mail"
-          placeholder="Inform the registered email"
-        />
-        <Input
-          $variant="default"
-          label="Password"
-          placeholder="Inform the registered password"
-        />
-        <Button title="Login"  />
-      </FormContainer>
-    </ContainerCenter>
+    <Styles.Container>
+      <ContainerCenter $background="primary" $shadow="tertiary" $padding={10} $width={50}
+      $align="center" $direction="column" $gap={10} 
+      >
+        <Styles.Title>
+          Login
+        </Styles.Title>
+        <LoginForm />
+      </ContainerCenter>
+    </Styles.Container>
   );
 }

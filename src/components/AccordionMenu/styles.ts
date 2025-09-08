@@ -20,7 +20,7 @@ export const ToggleButton = styled.button<{ $open: boolean,}>`
   font-weight: 500;
 
   &:hover {
-    background-color:${p => p.theme.colors.secundary};
+    background-color:${p => p.theme.colors.secondary};
   }
 `;
 

@@ -1,6 +1,7 @@
 
 import styled from "styled-components";
-import { Link, NavLink as Nav } from "react-router-dom";
+import { NavItem } from "../NavItem";
+import { StyledLink } from "../StyledLink";
 
 export type NavLinkProps = {
     to: string;
@@ -13,30 +14,7 @@ export type NavLinkItemsProps = {
 };
 
 
-const NavItem = styled(Nav)`
-  color: ${p => p.theme.colors.text};
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: ${p => p.theme.sizes.sm};
-  padding: 10px 15px;
-
-  &.active {
-    color: ${p => p.theme.colors.blue};
-  }
-
-  &:hover {
-    background-color: ${p => p.theme.colors.tertiary};
-  }
-`;
-
-const StyledLink = styled(Link)`
-  color: ${p => p.theme.colors.text};
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+ 
 
 const NavContainer = styled.nav`
   display: flex;
@@ -44,6 +22,7 @@ const NavContainer = styled.nav`
   align-items: center;
   background-color: ${p => p.theme.colors.primary};
   padding: 10px;
+  box-shadow: 0 1px 1px 1px ${p => p.theme.colors.tertiary};
 
   @media ${p => p.theme.medias.sm} {
     flex-wrap: wrap;

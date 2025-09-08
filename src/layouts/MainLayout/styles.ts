@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 100%;
     background-color: ${p => p.theme.colors.background};
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
 `;
 
 export const ContainerHeading = styled.div`
@@ -15,10 +15,8 @@ export const ContainerHeading = styled.div`
 
 `;
 
-
 export const TextContainer = styled.h1`
     font-weight: 900;
     font-size: 32px;
     display: grid;
-
 `;
