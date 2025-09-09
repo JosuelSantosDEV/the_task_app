@@ -4,9 +4,10 @@ const auth = createSlice({
   name: "auth",
   initialState: [],
   reducers: {
-    login: () => {}
+    login: () => {},
+    logout: () => {}
   }
 });
 
-export const {login} = auth.actions;
+export const {login, logout} = auth.actions;
 export default auth.reducer;

@@ -4,7 +4,7 @@ import { FormContainer } from "../../FormContainer";
 import { Input } from "../../Input";
 import { StyledLink } from "../../StyledLink";
 import * as Styles from "./styles";
-import { loginUser } from "../../../services/api/axios/user";
+import { UserService } from "../../../api/services/axios/UserService";
 import type { IUserLoginData } from "../../../interfaces/IUserData";
 
 type FormLoginInputs = {
@@ -18,7 +18,7 @@ export function LoginForm() {
   const onSubmit: SubmitHandler<FormLoginInputs> = async (data) => {
     const loginData: IUserLoginData = {email: data.email, password: data.password};
     try {
-      const response = await loginUser(loginData);
+      const response = await UserService.loginUser(loginData);
       console.log("Response: ",response.data);
     } catch(error) {
       console.log("An error ucurred: ", error);

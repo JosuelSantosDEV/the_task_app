@@ -1,0 +1,3 @@
+export const THE_TASK_APP_ACCESS_TOKEN="THE_TASK_APP_ACCESS_TOKEN";
+
+export const  API_BASE_URL= import.meta.env.VITE_API_BASE_URL;
